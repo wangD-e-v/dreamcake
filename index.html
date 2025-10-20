@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOFEE MANILA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6B4226;
+      --secondary: #F5EFE6;
+      --accent: #C49A6C;
+      --text: #2B2B2B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--secondary);
+      color: var(--text);
+    }
+
+    /* ===== FIXED HEADER ===== */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Add space below fixed header */
+    body::before {
+      content: "";
+      display: block;
+      height: 90px; /* equal to header height */
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .intro {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color: white;
+      padding: 6rem 2rem;
+      border-radius: 0 0 40px 40px;
+    }
+
+    .intro h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .why-choose {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 2rem;
+    }
+
+    .why-choose h2 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .why-choose p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== PRODUCT / SERVICES SECTION ===== */
+    .products {
+      background: var(--secondary);
+      padding: 4rem 2rem;
+    }
+
+    .products h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .product p {
+      padding: 0 1rem 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--primary);
+      color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    .testimonial {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 2rem;
+    }
+
+    .contact h2 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .intro h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="KOFEE Logo">
+      <span>KOFEE MANILA</span>
+    </div>
+    <nav>
+      <a href="#intro">Introduction</a>
+      <a href="#products">Product/Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section id="intro" class="intro">
+    <h1>Welcome to KOFEE MANILA</h1>
+    <p>Experience authentic Manila coffee culture — freshly brewed with passion, served with heart.</p>
+  </section>
+
+  <section id="about" class="why-choose">
+    <h2>Why Choose Us?</h2>
+    <p>At KOFEE MANILA, we embrace the Filipino love for coffee and community. Our blends are ethically sourced, expertly roasted, and served in a cozy environment where every sip feels like home.</p>
+  </section>
+
+<section id="products" class="products">
+  <h2>Our Products & Services</h2>
+  <div class="product-grid">
+
+    <div class="product">
+      <img src="assets/images/espresso.jpg" alt="Espresso">
+      <h3>Manila Espresso</h3>
+      <p>Strong and bold — a perfect kickstart for your busy morning in the city.</p>
+    </div>
+
+    <div class="product">
+      <img src="assets/images/caramel-latte.jpg" alt="Caramel Latte">
+      <h3>Caramel Latte</h3>
+      <p>A smooth blend of espresso and milk with a hint of sweet caramel drizzle.</p>
+    </div>
+
+    <div class="product">
+      <img src="assets/images/pastries.jpg" alt="Local Pastries">
+      <h3>Local Pastries</h3>
+      <p>Pair your coffee with fresh pandesal, ensaymada, or croissant baked daily.</p>
+    </div>
+
+    <div class="product">
+      <img src="assets/images/cold-brew.jpg" alt="Cold Brew">
+      <h3>Cold Brew</h3>
+      <p>Slow-brewed coffee with a naturally sweet and refreshing taste — perfect for hot days.</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="testimonials" class="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">"KOFEE MANILA serves the best brew in town! It’s my daily go-to spot." <span>- Bea Alonzo</span></div>
+    <div class="testimonial">"A cozy place to relax and sip authentic coffee with friends." <span>- Daniel Padilla</span></div>
+    <div class="testimonial">"Their cold brew is unmatched — smooth, rich, and perfectly balanced." <span>- Kathryn Bernardo</span></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Location: 2026 Cadena De Amor, Caloocan, 1400 Metro Manila.</p>
+    <p>📞 Phone: +63 907 051 6817</p>
+    <p>📧 Email: kofeemanila@gmail.com</p>
+  </section>
+
+  <footer>
+    Developed by: Aquino, Raymond & Lavega Jeva G. | &copy; 2025 KOFEE MANILA. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
